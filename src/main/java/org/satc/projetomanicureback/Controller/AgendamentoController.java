@@ -1,4 +1,5 @@
 package org.satc.projetomanicureback.Controller;
+
 import jakarta.persistence.EntityNotFoundException;
 import org.satc.projetomanicureback.model.Agendamento;
 import org.satc.projetomanicureback.service.AgendamentoService;
@@ -17,29 +18,29 @@ public class AgendamentoController {
     }
 
     @GetMapping
-        public List<Agendamento> listarAgendamentos() {
-            return agendamentoService.listarTodos();
-        }
+    public List<Agendamento> listarAgendamentos() {
+        return agendamentoService.listarTodos();
+    }
 
-        @GetMapping("/{id}")
-        public Agendamento buscarAgendamento(@PathVariable Integer id) {
+    @GetMapping("/{id}")
+    public Agendamento buscarAgendamento(@PathVariable Integer id) {
 
-            return agendamentoService.buscarPorId(id)
-                    .orElseThrow(() -> new EntityNotFoundException("Agendamento não encontrado com id: " + id));
-        }
+        return agendamentoService.buscarPorId(id)
+                .orElseThrow(() -> new EntityNotFoundException("Agendamento não encontrado com id: " + id));
+    }
 
-        @PostMapping
-        public Agendamento criarAgendamento(@RequestBody Agendamento agendamento) {
-            return agendamentoService.salvar(agendamento);
-        }
+    @PostMapping
+    public Agendamento criarAgendamento(@RequestBody Agendamento agendamento) {
+        return agendamentoService.salvar(agendamento);
+    }
 
-        @PutMapping("/{id}")
-        public Agendamento atualizarAgendamento(@PathVariable Integer id, @RequestBody Agendamento agendamento) {
-            return agendamentoService.atualizar(id, agendamento);
-        }
+    @PutMapping("/{id}")
+    public Agendamento atualizarAgendamento(@PathVariable Integer id, @RequestBody Agendamento agendamento) {
+        return agendamentoService.atualizar(id, agendamento);
+    }
 
-        @DeleteMapping("/{id}")
-        public void deletarAgendamento(@PathVariable Integer id) {
-            agendamentoService.deletar(id);
-        }
+    @DeleteMapping("/{id}")
+    public void deletarAgendamento(@PathVariable Integer id) {
+        agendamentoService.deletar(id);
+    }
 }

@@ -18,29 +18,29 @@ public class ServicoController {
     }
 
     @GetMapping
-        public List<Servico> listarServicos() {
-            return servicoService.listarTodos();
-        }
+    public List<Servico> listarServicos() {
+        return servicoService.listarTodos();
+    }
 
-        @GetMapping("/{id}")
-        public Servico buscarPorId(@PathVariable Integer id) {
-            return servicoService.buscarPorId(id).orElseThrow(
-                    () -> new EntityNotFoundException("Serviço não encontrado com id: " + id)
-            );
-        }
+    @GetMapping("/{id}")
+    public Servico buscarPorId(@PathVariable Integer id) {
+        return servicoService.buscarPorId(id).orElseThrow(
+                () -> new EntityNotFoundException("Serviço não encontrado com id: " + id)
+        );
+    }
 
-        @PostMapping
-        public Servico criarServico(@RequestBody Servico servico) {
-            return servicoService.salvar(servico);
-        }
+    @PostMapping
+    public Servico criarServico(@RequestBody Servico servico) {
+        return servicoService.salvar(servico);
+    }
 
-        @PutMapping("/{id}")
-        public Servico atualizarServico(@PathVariable Integer id, @RequestBody Servico servico) {
-            return servicoService.atualizar(id, servico);
-        }
+    @PutMapping("/{id}")
+    public Servico atualizarServico(@PathVariable Integer id, @RequestBody Servico servico) {
+        return servicoService.atualizar(id, servico);
+    }
 
-        @DeleteMapping("/{id}")
-        public void deletarServico(@PathVariable Integer id) {
-            servicoService.deletar(id);
-        }
+    @DeleteMapping("/{id}")
+    public void deletarServico(@PathVariable Integer id) {
+        servicoService.deletar(id);
+    }
 }

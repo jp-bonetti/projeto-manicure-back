@@ -18,29 +18,29 @@ public class ClienteController {
     }
 
     @GetMapping
-        public List<Cliente> listarClientes() {
-            return clienteService.listarTodos();
-        }
+    public List<Cliente> listarClientes() {
+        return clienteService.listarTodos();
+    }
 
-        @GetMapping("/{id}")
-        public Cliente buscarCliente(@PathVariable Integer id) {
-            return clienteService.buscarPorId(id).orElseThrow(
-                    () -> new EntityNotFoundException("Cliente não encontrado com id: " + id)
-            );
-        }
+    @GetMapping("/{id}")
+    public Cliente buscarCliente(@PathVariable Integer id) {
+        return clienteService.buscarPorId(id).orElseThrow(
+                () -> new EntityNotFoundException("Cliente não encontrado com id: " + id)
+        );
+    }
 
-        @PostMapping
-        public Cliente criarCliente(@RequestBody Cliente cliente) {
-            return clienteService.salvar(cliente);
-        }
+    @PostMapping
+    public Cliente criarCliente(@RequestBody Cliente cliente) {
+        return clienteService.salvar(cliente);
+    }
 
-        @PutMapping("/{id}")
-        public Cliente atualizarCliente(@PathVariable Integer id, @RequestBody Cliente cliente) {
-            return clienteService.atualizar(id, cliente);
-        }
+    @PutMapping("/{id}")
+    public Cliente atualizarCliente(@PathVariable Integer id, @RequestBody Cliente cliente) {
+        return clienteService.atualizar(id, cliente);
+    }
 
-        @DeleteMapping("/{id}")
-        public void deletarCliente(@PathVariable Integer id) {
-            clienteService.deletar(id);
-        }
+    @DeleteMapping("/{id}")
+    public void deletarCliente(@PathVariable Integer id) {
+        clienteService.deletar(id);
+    }
 }

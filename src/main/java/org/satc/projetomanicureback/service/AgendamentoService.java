@@ -18,19 +18,19 @@ public class AgendamentoService {
     }
 
     public List<Agendamento> listarTodos() {
-            return agendamentoRepository.findAll();
-        }
+        return agendamentoRepository.findAll();
+    }
 
-        public Optional<Agendamento> buscarPorId(Integer id) {
-            return agendamentoRepository.findById(id);
-        }
+    public Optional<Agendamento> buscarPorId(Integer id) {
+        return agendamentoRepository.findById(id);
+    }
 
-        public Agendamento salvar(Agendamento agendamento) {
-            return agendamentoRepository.save(agendamento);
-        }
+    public Agendamento salvar(Agendamento agendamento) {
+        return agendamentoRepository.save(agendamento);
+    }
 
-        public Agendamento atualizar(Integer id, Agendamento agendamentoAtualizado) {
-            return agendamentoRepository.findById(id)
+    public Agendamento atualizar(Integer id, Agendamento agendamentoAtualizado) {
+        return agendamentoRepository.findById(id)
                 .map(agendamento -> {
                     agendamento.setDataHora(agendamentoAtualizado.getDataHora());
                     agendamento.setCliente(agendamentoAtualizado.getCliente());
@@ -39,11 +39,11 @@ public class AgendamentoService {
                     return agendamentoRepository.save(agendamento);
                 })
                 .orElseThrow(() -> new EntityNotFoundException("Agendamento não encontrado"));
-        }
+    }
 
-        public void deletar(Integer id) {
-            agendamentoRepository.deleteById(id);
-        }
+    public void deletar(Integer id) {
+        agendamentoRepository.deleteById(id);
+    }
 
 }
 

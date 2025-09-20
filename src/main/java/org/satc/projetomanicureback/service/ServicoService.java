@@ -17,19 +17,19 @@ public class ServicoService {
     }
 
     public List<Servico> listarTodos() {
-            return servicoRepository.findAll();
-        }
+        return servicoRepository.findAll();
+    }
 
-        public Optional<Servico> buscarPorId(Integer id) {
-            return servicoRepository.findById(id);
-        }
+    public Optional<Servico> buscarPorId(Integer id) {
+        return servicoRepository.findById(id);
+    }
 
-        public Servico salvar(Servico servico) {
-            return servicoRepository.save(servico);
-        }
+    public Servico salvar(Servico servico) {
+        return servicoRepository.save(servico);
+    }
 
-        public Servico atualizar(Integer id, Servico servicoAtualizado) {
-            return servicoRepository.findById(id)
+    public Servico atualizar(Integer id, Servico servicoAtualizado) {
+        return servicoRepository.findById(id)
                 .map(servico -> {
                     servico.setNome(servicoAtualizado.getNome());
                     servico.setDescricao(servicoAtualizado.getDescricao());
@@ -37,9 +37,9 @@ public class ServicoService {
                     return servicoRepository.save(servico);
                 })
                 .orElseThrow(() -> new RuntimeException("Serviço não encontrado"));
-        }
+    }
 
-        public void deletar(Integer id) {
-            servicoRepository.deleteById(id);
-        }
+    public void deletar(Integer id) {
+        servicoRepository.deleteById(id);
+    }
 }

@@ -31,19 +31,18 @@ public class ClienteService {
 
     public Cliente atualizar(Integer id, Cliente clienteAtualizado) {
         return clienteRepository.findById(id)
-            .map(cliente -> {
-                cliente.setNome(clienteAtualizado.getNome());
-                cliente.setEmail(clienteAtualizado.getEmail());
-                // atualize outros campos conforme necessário
-                return clienteRepository.save(cliente);
-            })
-            .orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado"));
+                .map(cliente -> {
+                    cliente.setNome(clienteAtualizado.getNome());
+                    cliente.setEmail(clienteAtualizado.getEmail());
+                    // atualize outros campos conforme necessário
+                    return clienteRepository.save(cliente);
+                })
+                .orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado"));
     }
 
     public void deletar(Integer id) {
         clienteRepository.deleteById(id);
     }
-
 
 
 }
