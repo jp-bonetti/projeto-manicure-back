@@ -1,4 +1,4 @@
-package org.satc.projetomanicureback.Controller;
+package org.satc.projetomanicureback.controller;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.satc.projetomanicureback.model.Agendamento;
