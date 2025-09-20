@@ -2,6 +2,7 @@ package org.satc.projetomanicureback.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.Type;
 
 import java.time.LocalDateTime;
 import java.util.List;
